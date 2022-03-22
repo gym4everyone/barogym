@@ -1,8 +1,8 @@
 import React from 'react';
 import {Pagination} from 'react-bootstrap';
-import {CONTAINER, PAGINATION} from '../../../styles/MyInfoStyle'
+import {CONTAINER, PAGINATION} from '../../../styles/BoardStyle'
 
-const MyPostsPagination = () => {
+const BoardPagination = () => {
   let active = 1;
   let items = [];
   for (let number = 1; number <= 5; number++) {
@@ -20,4 +20,4 @@ const MyPostsPagination = () => {
   );
 };
 
-export default MyPostsPagination;
+export default BoardPagination;

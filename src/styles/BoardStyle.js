@@ -1,7 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled, {css} from 'styled-components';
 import { Pagination } from 'react-bootstrap';
-
-/* MyInfo 페이지 */
 
 export const PAGEHEADER = styled.header`
   border-bottom: 1px solid gray;
@@ -9,6 +7,11 @@ export const PAGEHEADER = styled.header`
   padding-bottom: 1em;
   display: flex;
   justify-content: space-between;
+  ${props => props.center && css`
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  `}
 `
 
 export const CONTAINER = styled.article`
@@ -37,17 +40,22 @@ export const CONTAINER = styled.article`
   `}
 `
 
-export const TWOBUTTONS = styled.div`
+/* 글자 색 */
+export const H1 = styled.h1`
+  color: rgb(254, 139, 121);
+`
+
+export const H2 = styled.h2`
+  color: rgb(254, 139, 121);
+`
+
+/* 글 목록 페이지 */
+export const PAGINATION = styled(Pagination)`
   display: flex;
-  justify-content: space-between;
-  margin-top: 1em;
+  justify-content: center;
 `
 
-
-export const SUBSECTION = styled.section`
-  margin-bottom: 3em;
-`
-
+/* 버튼 */
 export const BUTTON = styled.button`
   background-color: ${props =>
     props.gray ? "gray" : "rgb(254, 139, 121)"
@@ -56,13 +64,14 @@ export const BUTTON = styled.button`
   padding: ${props => props.thick ? "1em" : "0.5em 1em"};
   border-radius: 4px;
   border: none;
+  
   ${props => props.forty && css`
     width: 40%; //전체화면에서 버튼 너무 커서 40%로 줄임
   `}
   ${props => props.thirty && css`
     width: 30%;
   `}
-
+  
   @media(min-width: 800px) {
     ${props =>
     props.bottom &&
@@ -73,48 +82,54 @@ export const BUTTON = styled.button`
   }
 `
 
-/* 연락처, 비밀번호 컴포넌트 */
-
-// export const PWSECTION = styled.section`
-//   margin: 0 auto;
-//   width: 90%;
-//   padding: 0 2em;
-//   position: relative;
-// ` 이거 지우고 STYLEDCONTAINER에 props 추가해서 사용하기로 했다(position:relative말고는 STYLEDCONTAINER랑 코드가 똑같아서)
-
-export const FORM = styled.form`
-  margin: 2em auto;
-  /* width: 100%; */
-  /* max-width: 500px; */
-  display: flex;
-  flex-direction: column;
+/* 양도하기 버튼 */
+export const TRANSBUTTON = styled(BUTTON)`
+  width: 100%;
+  margin-bottom: 1em;
 `
 
-export const FORMTITLE = styled.header`
+/* 글쓰기 페이지 */
+export const TWOBUTTONS = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 1em;
+  ${props => props.flexEnd && css`
+    justify-content: flex-end;
+  `}
 `
 
-export const FORMITEM = styled.div`
+/* 글 상세보기 페이지 */
+export const GRIDCONTAINER = styled.article`
+  width: 80%;
+  font-size: 0.8rem;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  @media(min-width: 800px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`
+
+export const FORM = styled.form`
+  /* display: grid;
+  row-gap: 20px; */
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 1em;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2em;
 `
 
-export const LABEL = styled.label`
-  width: ${props => props.pwCheck ? "100%" : "50%"};
-  margin-bottom: 1em;
+export const TEXTAREA = styled.textarea`
+  width: 100%;
 `
 
+/* 글 상세보기 - 댓글 */
+
+/* 글쓰기 화면 폼 */
 export const INPUT = styled.input`
   padding: 0.5em 1em;
   border-radius: 4px;
   border: 1px solid gray;
-  ${props => props.pwCheck &&
-    css`
-      margin-bottom: 1em;
-    `
-  }
   ${props => props.seventy && css`
     width: 70%;
   `}
@@ -126,21 +141,19 @@ export const INPUT = styled.input`
   `}
 `
 
-/* 주소 */
-
-export const ADDRSECTION = styled.section`
-  display: flex;
-  flex-direction: column;
+export const LABEL = styled.label`
+  width: ${props => props.pwCheck ? "100%" : props.thirty ? "30%" : "50%"};
+  margin-bottom: 1em;
+  font-weight: 700;
+  ${props => props.center && css`
+    justify-self: center;
+  `}
 `
 
-/* 글자 색 */
-export const H1 = styled.h1`
-  color: rgb(254, 139, 121);
+export const ERRORMSG = styled.p`
+  color: gray;
+  ${props => props.rightAlign && css`
+    text-align: right;
+  `}
 `
 
-/* pagination */
-
-export const PAGINATION = styled(Pagination)`
-  display: flex;
-  justify-content: center;
-`
