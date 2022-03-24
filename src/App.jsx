@@ -54,9 +54,11 @@ const App = () => {
   return (
     <>
       <Header/>
-        {/* <button onClick={async()=>{ const db =await memberListDB(); alert("console창 확인"); console.log(db.data[0]);}}>DB테스트</button>
+         {/*  <button onClick={async()=>{ const db =await memberListDB(); alert("console창 확인"); 
+        console.log(db.data[0]);}}>DB테스트</button>
         <KakaoMap/>
         <Zipcode/> */}
+
         <Routes>
           {/* home */}
           <Route path="/" exact={true} element={<HomePage/>} />

@@ -58,7 +58,7 @@ export const STYLEDBUTTON = styled.button`
 export const BLACKBUTTON = styled.button`
   background-color: ${(props) => (props.gray ? "gray" : "rgb(127, 127, 127)")};
   color: white;
-  padding: 0.5em 1em;
+  padding: 0.5em 2em;
   border-radius: 4px;
   border: none;
   @media (min-width: 800px) {

@@ -3,34 +3,42 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import "./intro/style.css"
 import { Route, Link } from 'react-router-dom';
+import styled, {css} from 'styled-components';
+
+export const STYLEDCONTAINER = styled.div`
+  margin: 0 auto;
+  @media(min-width: 800px) {
+    ${props =>
+    !props.pwCheck &&
+    css`
+      padding: 0 10em;
+    `}
+  }
+  width: 100%;
+  ${props =>
+  props.relative &&
+  css`
+    position: relative;
+  `}
+`
+
+
 
 const HomePage = () => {
   return (
-   <div>
-      <Carousel class="opacity">
-  <Carousel.Item>
-    <img
-      className="homeImg"
-      src="https://i.ibb.co/MndR7bt/gym-gcdd3176ab-1920.jpg"
-      alt="First slide"
-    />
-
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="homeImg"
-      src="https://i.ibb.co/9Wbf6yp/workout-g6445426c7-1920.jpg"
-      alt="Second slide"
-    />
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="homeImg"
-      src="https://i.ibb.co/P9ySqz0/mark-bertulfo-XKim-W0pke6w-unsplash.jpg"
-      alt="Third slide"
-    />
-  </Carousel.Item>
-</Carousel>
+    <STYLEDCONTAINER>
+    <div style={{ textAlign: "center" }}>
+      <Carousel>
+        <Carousel.Item>
+          <img className="homeImg"
+            src="https://i.ibb.co/MndR7bt/gym-gcdd3176ab-1920.jpg"
+            alt="First slide" />
+          <Carousel.Caption>
+            <h3>BAROGYM</h3>
+            <p>송파구 최대규모의 피트니스 센터</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
 
 <div className='button'>
   
@@ -64,31 +72,37 @@ const HomePage = () => {
 
 </div>
 
-
-      <Link to="./intro/gym">
+<div>
+        <Link to="./intro/gym">
       <img  className="homeImg2"
       src="https://i.ibb.co/JdtWhcb/image.png"
       alt="fitness">
       </img>
       </Link>
+</div>
 
-      <Link to="/intro/class">
+<div>
+        <Link to="/intro/class">
       <img  className="homeImg2"
       src="https://i.ibb.co/9nmyfCM/image.png"
       alt="GX">
       </img>
       </Link>
+</div>
 
-      <Link to="./intro/teacher">
+<div>
+        <Link to="./intro/teacher">
       <img  className="homeImg2"
       src="https://i.ibb.co/HqR1SWH/image.png" 
       alt="teacher">
       </img>
       </Link>
+</div>
 
 
+    </div>  
+  </STYLEDCONTAINER>
      
-    </div>
   );
 };
 
